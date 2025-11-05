@@ -1,2 +1,4 @@
-mail: admin@gmail.com
-pass: 12345678
+mail: xxxxxxxxxx
+pass: xxxxxxxxxx
+
+garbage-management.netlify.app
