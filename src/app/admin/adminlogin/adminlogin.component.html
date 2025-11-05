@@ -1,45 +1,50 @@
 <div class="whole">
-  <div class="login-container">
+<div class="login-container">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
       <!-- Admin Logo -->
       <div class="logo-section">
         <img src="assets/images/adminlogo.png" alt="Admin Logo" />
       </div>
-
+  
       <h2>Admin Login</h2>
-
+  
       <!-- Email Field -->
       <div class="input-group">
         <input
           type="email"
           formControlName="email"
-          placeholder="Enter your email"
+          placeholder="Email"
           required
         />
         <div
-          *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+          *ngIf="
+            loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+          "
           class="error-message"
         >
           Valid email is required!
         </div>
       </div>
-
+  
       <!-- Password Field -->
       <div class="input-group">
         <input
           type="password"
           formControlName="password"
-          placeholder="Enter your password"
+          placeholder="Password"
           required
         />
         <div
-          *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.touched
+          "
           class="error-message"
         >
           Password is required!
         </div>
       </div>
-
+  
       <!-- Submit Button -->
       <button type="submit" [disabled]="loginForm.invalid">
         Login
@@ -47,3 +52,4 @@
     </form>
   </div>
 </div>
+  
