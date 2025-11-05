@@ -1,0 +1,229 @@
+/* ✅ Container Styling */
+.containerc {
+    padding: 24px;
+    background-color: #f9fafb;
+    font-family: 'Arial', sans-serif;
+    width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* ✅ Header Section */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* ✅ Contact Form Section */
+  .contact-form {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 24px;
+  }
+  
+  .contact-form h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 16px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #4caf50;
+  }
+  
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  .contact-form button {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    background-color: #45a049;
+  }
+  
+  /* ✅ Queries List Section */
+  .queries-list {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .queries-list h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 16px;
+  }
+  
+  .queries-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .queries-table th,
+  .queries-table td {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+  }
+  
+  .queries-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .queries-table td {
+    color: #666;
+  }
+  
+  .queries-table .actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .queries-table .delete-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  
+  .queries-table .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* ✅ Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  /* ✅ Modal */
+  .modal {
+    background-color: #ffffff;
+    padding: 24px;
+    width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .modal h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    color: #333;
+  }
+  
+  .modal input,
+  .modal textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .modal input:focus,
+  .modal textarea:focus {
+    border-color: #4caf50;
+  }
+  
+  .modal textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  /* ✅ Modal Buttons */
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+  
+  .modal-actions button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-actions .save-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .modal-actions .save-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .modal-actions .cancel-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .modal-actions .cancel-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* ✅ Fade In Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

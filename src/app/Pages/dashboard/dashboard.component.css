@@ -1,0 +1,180 @@
+/* dashboard.component.css */
+
+/* Container Styles */
+.dashboard-container {
+    background: linear-gradient(to bottom right, #fafafa, #f5f5f5);
+    min-height: 100vh;
+    padding: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: row;
+}
+
+.card-class{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: min-content;
+    justify-content:space-around ;
+}
+
+
+.profile-card{
+    width: 250px;
+}
+
+.complaints-card{
+    width: 950px;
+    margin-bottom: 40px;
+}
+
+/* Card Styles */
+.profile-card, .complaints-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    border-left: 5px solid #8b0000;
+    overflow: hidden;
+    margin-top: 150px;
+    height: auto;
+}
+
+.profile-card:hover, .complaints-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Profile Section */
+.profile-card {
+    padding: 1.75rem;
+}
+
+.profile-card h2 {
+    color: #8b0000;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+}
+
+.profile-info p {
+    margin: 0.5rem 0;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.profile-info strong {
+    color: #b22222;
+    min-width: 100px;
+    font-weight: 600;
+}
+
+/* Complaints Table */
+.complaints-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.complaints-table th {
+    background: #8b0000;
+    color: white;
+    font-weight: 600;
+    text-align: left;
+    padding: 1rem;
+    font-size: 0.875rem;
+    border-top: 2px solid #8b0000;
+}
+
+.complaints-table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.complaints-table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.complaints-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    color: #4a5568;
+    font-size: 0.875rem;
+    transition: background-color 0.3s ease;
+}
+
+.complaints-table tr:hover {
+    background-color: #fff5f5;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+}
+
+.status-pending {
+    background-color: #fff5f5;
+    color: #b22222;
+    border: 1px solid #b22222;
+}
+
+.status-in-progress {
+    background-color: #fdf2f2;
+    color: #8b0000;
+    border: 1px solid #8b0000;
+}
+
+.status-resolved {
+    background-color: #f0fdfa;
+    color: #0f766e;
+    border: 1px solid #0f766e;
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 1rem;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+
+    .complaints-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .complaints-table th,
+    .complaints-table td {
+        padding: 0.75rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-card,
+.complaints-card {
+    animation: fadeIn 0.4s ease-out;
+}

@@ -1,0 +1,217 @@
+/* ✅ Container Styling */
+.container {
+    padding: 24px;
+    background-color: #f9fafb;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* ✅ Header Section */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    width: 1115px;
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* ✅ Filters Section */
+  .filters {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .search-input,
+  .filter-select {
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+    outline: none;
+    width: 200px;
+  }
+  
+  .search-input:focus,
+  .filter-select:focus {
+    border-color: #4caf50;
+  }
+  
+  .add-btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* ✅ Users List Section */
+  .users-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  
+  .user-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  .user-details {
+    padding: 16px;
+  }
+  
+  .user-details h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  
+  .user-details p {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  /* ✅ Actions */
+  .actions {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .edit-btn {
+    background-color: #ffcc00;
+    color: #333;
+  }
+  
+  .edit-btn:hover {
+    background-color: #ffb300;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* ✅ Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  /* ✅ Modal */
+  .modal {
+    background-color: #ffffff;
+    padding: 24px;
+    width: 550px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .modal h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    color: #333;
+  }
+  
+  .modal input,
+  .modal select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .modal input:focus,
+  .modal select:focus {
+    border-color: #4caf50;
+  }
+  
+  /* ✅ Modal Buttons */
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+  
+  .save-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .save-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .cancel-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* ✅ Fade In Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

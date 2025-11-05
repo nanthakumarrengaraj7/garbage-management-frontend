@@ -1,0 +1,203 @@
+
+
+/* Navbar Styles */
+/* Navbar Styles */
+.navbar {
+  background: linear-gradient(90deg, #b71c1c, #880e4f); /* Gradient effect */
+  padding: 14px 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+  border-bottom: 2px solid #c62828;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+margin: 0;
+}
+
+.navbar .logo a {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar .logo a:hover {
+  color: #ffccbc;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  /* margin-left: 500px; */
+ 
+}
+
+.nav-links li {
+  display: inline-block;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffccbc;
+}
+
+/* Logout Button */
+.logout-btn {
+  background-color: #e53935;
+  padding: 8px 18px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logout-btn:hover {
+  background-color: #c62828;
+  transform: translateY(-2px); /* Lift effect */
+}
+/* Admin Layout */
+.admin-layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: rgba(174, 0, 0, 0.9);/* Dark Red */
+  padding-top: 10px;
+  color: #ecf0f1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  transition: width 0.3s ease;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  padding: 20px;
+  background-color: rgba(174, 0, 0, 0.9); /* Lighter Dark Red */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -55px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-section img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-section h2 {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+/* Sidebar Links */
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-links li {
+  padding: 14px 20px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.sidebar-links li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.sidebar-links li:hover {
+  background-color: #d66625; /* Medium Red */
+}
+
+.sidebar-links li a:hover {
+  color: #ffccbc;
+}
+
+/* Logout Button in Sidebar */
+.sidebar-links .logout-btn {
+  background-color: #e74c3c;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.sidebar-links .logout-btn:hover {
+  /* background-color: #c0392b; */
+}
+
+/* Admin Content */
+.admin-content {
+  margin-left: 260px;
+  padding: 20px;
+  background-color: #f9fafc;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 12px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .admin-content {
+    margin-left: 0;
+  }
+}

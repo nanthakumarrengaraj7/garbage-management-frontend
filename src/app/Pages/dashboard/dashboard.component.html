@@ -1,0 +1,61 @@
+<div class="dashboard-container">
+ 
+
+  <div class="card-class">
+    <!-- Profile Card -->
+    <div class="profile-card">
+      <h2>Profile</h2>
+      <div class="profile-info">
+        <p><strong>Name:</strong> {{ user.fullName }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Role:</strong> User</p>
+      </div>
+    </div>
+
+    <!-- Complaints Card -->
+    <div class="complaints-card md:col-span-2">
+      <h2>My Complaints</h2>
+      <table class="complaints-table">
+        <thead>
+          <tr>
+            <th>Complaint</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Description</th>
+            <th>Ward Number</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let complaint of complaints">
+            <td>{{ complaint.title }}</td>
+            <td>{{ complaint.createdAt | date: 'yyyy-MM-dd' }}</td>
+            <td>
+              <span class="status-badge" [ngClass]="getStatusClass(complaint.status)">
+                {{ complaint.status }}
+              </span>
+            </td>
+            <td>{{ complaint.description }}</td>
+            <td>{{ complaint.wardNumber }}</td>
+            <td>
+              <img
+                *ngIf="complaint.images && complaint.images.length > 0"
+                [src]="'http://localhost:5000' +complaint.images[0]"
+                alt="Complaint Image"
+                class="complaint-image"
+                width="100px"
+                height="100px"
+              />
+            </td>
+          </tr>
+          <tr *ngIf="complaints.length === 0">
+            <td colspan="6" class="text-center text-gray-500">
+              No complaints found
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

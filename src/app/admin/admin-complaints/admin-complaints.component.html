@@ -1,0 +1,91 @@
+<div class="container">
+    <!-- ✅ Header Section -->
+    <div class="header">
+      <h2 class="title">Complaints List</h2>
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        (input)="filterComplaints()"
+        placeholder="🔍 Search Complaint..."
+        class="search-input"
+      />
+      <div class="filters">
+        <select [(ngModel)]="selectedStatus" (change)="filterComplaints()" class="filter-select">
+          <option value="">All Status</option>
+          <option value="Reviewed">Reviewed</option>
+          <option value="Processing">Processing</option>
+          <option value="Closed">Closed</option>
+        </select>
+        <select [(ngModel)]="selectedEmployee" (change)="filterComplaints()" class="filter-select">
+          <option value="">All Employees</option>
+          <option *ngFor="let employee of employees" [value]="employee._id">
+            {{ employee.name }}
+          </option>
+        </select>
+        <input
+          type="date"
+          [(ngModel)]="startDate"
+          (change)="filterComplaints()"
+          class="filter-date"
+          style="display: none;"
+        />
+        <input
+          type="date"
+          [(ngModel)]="endDate"
+          (change)="filterComplaints()"
+          class="filter-date"
+          style="display: none;"
+        />
+      </div>
+    </div>
+  
+    <!-- ✅ Complaints List Section -->
+    <div class="complaints-list">
+      <div *ngFor="let complaint of filteredComplaints" class="complaint-card">
+        <!-- ✅ Complaint Details (Left) -->
+        <div class="complaint-details">
+          <h3>{{ complaint.title }}</h3>
+          <p>{{ complaint.description }}</p>
+          <p>Ward: {{ complaint.wardNumber }}</p>
+          <p>Raised By: {{ complaint.raisedBy.name }}</p>
+          <p>Status: {{ complaint.status }}</p>
+          <!-- <p>Assign To: {{ complaint.assignedTo?.name }}</p> -->
+
+          <div class="actions">
+            <button class="edit-btn" (click)="openModal(complaint)">Edit Status</button>
+            <button class="assign-btn" (click)="assignEmployee(complaint)">Assign</button>
+            <button class="delete-btn" (click)="deleteComplaint(complaint._id)">Delete</button>
+          </div>
+        </div>
+  
+        <!-- ✅ Complaint Images (Right) -->
+        <div class="complaint-images">
+          <img
+            *ngFor="let image of complaint.images"
+            [src]="'http://localhost:5000' + image"
+            [alt]="complaint.title"
+            class="complaint-image"
+          />
+        </div>
+      </div>
+    </div>
+  
+    <!-- ✅ Modal Section -->
+    <div class="modal-overlay" *ngIf="isModalOpen">
+      <div class="modal">
+        <h3>Edit Complaint Status</h3>
+        <form (ngSubmit)="saveComplaintStatus()">
+          <select [(ngModel)]="selectedComplaint.status" name="status" required>
+            <option value="Reviewed">Reviewed</option>
+            <option value="Processing">Processing</option>
+            <option value="Closed">Closed</option>
+          </select>
+          <div class="modal-actions">
+            <button type="submit" class="save-btn">Save</button>
+            <button type="button" (click)="closeModal()" class="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

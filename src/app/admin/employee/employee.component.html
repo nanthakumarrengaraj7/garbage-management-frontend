@@ -1,0 +1,60 @@
+<div class="container">
+    <!-- ✅ Header Section -->
+    <div class="header">
+      <h2 class="title">Employee List</h2>
+      <div class="filters">
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          (input)="filterEmployees()"
+          placeholder="🔍 Search Employee..."
+          class="search-input"
+        />
+        <button class="add-btn" (click)="openModal()">+ Add Employee</button>
+      </div>
+    </div>
+  
+    <!-- ✅ Employee List Section -->
+    <div class="employee-list">
+      <div *ngFor="let employee of filteredEmployees; let i = index" class="employee-card">
+        <div class="employee-details">
+          <h3>{{ employee.name }}</h3>
+          <p>Email: {{ employee.email }}</p>
+          <p>Phone: {{ employee.phone }}</p>
+          <p>Ward: {{ employee.ward?.wardNumber }}</p>
+
+          <p>Employee Number: {{ employee.employeeNumber }}</p>
+          <div class="actions">
+            <button class="edit-btn" (click)="openModal(employee)">Edit</button>
+            <button class="delete-btn" (click)="deleteEmployee(employee._id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- ✅ Modal Section -->
+    <div class="modal-overlay" *ngIf="isModalOpen">
+      <div class="modal">
+        <h3>{{ editMode ? 'Edit Employee' : 'Add Employee' }}</h3>
+        <form (ngSubmit)="saveEmployee()">
+          <input type="text" [(ngModel)]="selectedEmployee.name" name="name" placeholder="Employee Name" required />
+          <input type="email" [(ngModel)]="selectedEmployee.email" name="email" placeholder="Employee Email" required />
+          <input type="text" [(ngModel)]="selectedEmployee.phone" name="phone" placeholder="Phone Number" required />
+          
+          <!-- Ward Dropdown -->
+          <select [(ngModel)]="selectedEmployee.ward" name="ward" required>
+            <option value="" disabled selected>Select Ward</option>
+            <option *ngFor="let ward of wards" [value]="ward._id">{{ ward.wardNumber }}</option>
+          </select>
+          
+          <input type="text" [(ngModel)]="selectedEmployee.employeeNumber" name="employeeNumber" placeholder="Employee Number" required />
+          
+          <div class="modal-actions">
+            <button type="submit" class="save-btn">Save</button>
+            <button type="button" (click)="closeModal()" class="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

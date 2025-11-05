@@ -1,0 +1,129 @@
+<!-- If User is Logged In -->
+<ng-container *ngIf="isLoggedIn; else guestNavbar">
+  <!-- USER NAVBAR -->
+  <ng-container *ngIf="userRole === 'user'; else adminSidebar">
+    <nav class="navbar">
+      <div class="logo">
+        <a routerLink="/home">Garbage Management</a>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a routerLink="/home">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        <li>
+          <a routerLink="/about">
+            <i class="fas fa-info-circle"></i> About Us
+          </a>
+        </li>
+        <li>
+          <a routerLink="/wards">
+            <i class="fas fa-map-marker-alt"></i> Our Wards
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard">
+            <i class="fas fa-chart-line"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a (click)="logout()" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </ng-container>
+
+  <!-- ADMIN SIDEBAR -->
+  <ng-template #adminSidebar>
+    <div class="admin-layout">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo-section">
+            <img src="assets/images/adminlogo.png" alt="Admin Logo" />
+            <h2>Admin Panel</h2>
+          </div>
+        </div>
+        <ul class="sidebar-links">
+          <li>
+            <a routerLink="/admindashboard">
+              <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
+          </li>
+          <li>
+            <a routerLink="/adminwards">
+              <i class="fas fa-map-marker-alt"></i> Wards
+            </a>
+          </li>
+          <li>
+            <a routerLink="/adminemployee">
+              <i class="fas fa-users"></i> Employees
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admincomplaints">
+              <i class="fas fa-envelope"></i> Complaints
+            </a>
+          </li>
+          <li>
+            <a routerLink="/adminUsers">
+              <i class="fas fa-user"></i> Users
+            </a>
+          </li>
+
+          <li>
+            <a routerLink="/adminContact">
+              <i class="fas fa-phone"></i> Contact Us
+            </a>
+          </li>
+          <li>
+            <a routerLink="/adminReport">
+              <i class="fas fa-file-alt"></i> Reports
+            </a>
+          </li>
+          <li>
+            <a (click)="logout()" class="logout-btn">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="admin-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </ng-template>
+</ng-container>
+
+<!-- If User is NOT Logged In -->
+<ng-template #guestNavbar>
+  <nav class="navbar">
+    <div class="logo">
+      <a routerLink="/home">Garbage Management</a>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a routerLink="/home">
+          <i class="fas fa-home"></i> Home
+        </a>
+      </li>
+      <li>
+        <a routerLink="/about">
+          <i class="fas fa-info-circle"></i> About Us
+        </a>
+      </li>
+      <li>
+        <a routerLink="/wards">
+          <i class="fas fa-map-marker-alt"></i> Our Wards
+        </a>
+      </li>
+      <li>
+        <a routerLink="/login">
+          <i class="fas fa-sign-in-alt"></i> Login/Signup
+        </a>
+      </li>
+    </ul>
+  </nav>
+</ng-template>

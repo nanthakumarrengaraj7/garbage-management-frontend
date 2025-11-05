@@ -1,0 +1,60 @@
+<div class="container">
+    <!-- ✅ Header Section -->
+    <div class="header">
+      <h2 class="title">Users List</h2>
+      <div class="filters">
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          (input)="filterUsers()"
+          placeholder="🔍 Search Users..."
+          class="search-input"
+        />
+        <select [(ngModel)]="selectedRole" (change)="filterUsers()" class="filter-select">
+          <option value="">All Roles</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+    </div>
+  
+    <!-- ✅ Users List Section -->
+    <div class="users-list">
+      <div *ngFor="let user of filteredUsers" class="user-card">
+        <div class="user-details">
+          <h3>{{ user.fullName }}</h3>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Phone:</strong> {{ user.phone || '-' }}</p>
+          <p><strong>Address:</strong> {{ user.address || '-' }}</p>
+          <p><strong>Role:</strong> {{ user.role }}</p>
+        </div>
+        <div class="actions">
+          <button class="edit-btn" (click)="openModal(user)">✏️ Edit</button>
+          <button class="delete-btn" (click)="deleteUser(user._id)">🗑️ Delete</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- ✅ Modal Section -->
+    <div class="modal-overlay" *ngIf="isModalOpen">
+      <div class="modal">
+        <h3>Edit User</h3>
+        <form (ngSubmit)="saveUser()">
+          <input [(ngModel)]="selectedUser.fullName" name="fullName" placeholder="Full Name" required />
+          <input [(ngModel)]="selectedUser.email" name="email" placeholder="Email" required />
+          <input [(ngModel)]="selectedUser.phone" name="phone" placeholder="Phone" />
+          <input [(ngModel)]="selectedUser.address" name="address" placeholder="Address" />
+          <select [(ngModel)]="selectedUser.role" name="role" required>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+  
+          <div class="modal-actions">
+            <button type="submit" class="save-btn">💾 Save</button>
+            <button type="button" (click)="closeModal()" class="cancel-btn">❌ Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

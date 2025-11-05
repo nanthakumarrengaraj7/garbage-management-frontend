@@ -1,0 +1,27 @@
+<div class="containerc">
+    <h2 class="title">Contact Queries</h2>
+    <table class="queries-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Message</th>
+          <!-- <th>Date</th> -->
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let query of queries">
+          <td>{{ query.name }}</td>
+          <td>{{ query.email }}</td>
+          <td>{{ query.message }}</td>
+          <!-- <td>{{ query.createdAt.$date | date: 'medium' }}</td> -->
+          <td>
+            <button class="delete-btn" (click)="deleteQuery(query._id.$oid)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

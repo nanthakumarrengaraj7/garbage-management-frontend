@@ -1,0 +1,49 @@
+.about-us-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem;
+    background-color: white; /* White background */
+  }
+  
+  .image-container {
+    flex: 1;
+  }
+  
+  .image-container img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .content-container {
+    flex: 1;
+    padding: 1rem;
+  }
+  
+  .content-container h2 {
+    font-size: 2rem;
+    color: #B22222; /* Royal Red */
+    margin-bottom: 1rem;
+  }
+  
+  .content-container p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-us-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .image-container img {
+      max-width: 80%;
+    }
+  }
+  

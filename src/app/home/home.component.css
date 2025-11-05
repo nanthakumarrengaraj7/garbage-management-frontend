@@ -1,0 +1,181 @@
+/* General Styles */
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  /* Banner Section */
+  .banner {
+    background: #B22222; /* Royal Red */
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+  }
+  
+  .banner-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    background: white;
+    color: #B22222;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+  }
+  
+  .btn:hover {
+    background: #8B0000;
+    color: white;
+  }
+  
+  /* What We Do Section */
+  .what-we-do {
+    text-align: center;
+    padding: 50px 20px;
+    background: white;
+  }
+  
+  .what-we-do h2 {
+    color: #B22222;
+    font-size: 2rem;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .feature {
+    width: 30%;
+    text-align: center;
+  }
+  
+  .feature img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .feature h3 {
+    color: #B22222;
+    margin-top: 10px;
+  }
+  
+  /* Query Form Section */
+  .query-section {
+    padding: 50px 20px;
+    background: white;
+  }
+  
+  .query-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .query-image img {
+    width: 400px;
+    border-radius: 10px;
+  }
+  
+  .query-form {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .query-form h2 {
+    color: #B22222;
+    font-size: 2rem;
+  }
+  
+  .query-form p {
+    margin-bottom: 20px;
+  }
+  
+  .query-form input,
+  .query-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #B22222;
+    border-radius: 5px;
+  }
+  
+  .query-form button {
+    background: #B22222;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .query-form button:hover {
+    background: #8B0000;
+  }
+
+  .what-we-do {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 50px 20px;
+  }
+  .what-we-do h2 {
+    color: #b3001b; /* Royal Red Color */
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  .what-we-do p {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .feature-card {
+    background-color: #fff;
+    border: 2px solid #b3001b;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+  }
+  .feature-card:hover {
+    transform: scale(1.05);
+  }
+  .feature-card img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  .feature-card h3 {
+    color: #b3001b;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .feature-card p {
+    color: #555;
+    font-size: 1rem;
+  }
+  

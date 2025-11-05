@@ -1,0 +1,123 @@
+/* Overall container */
+.register-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Left Side Image */
+.register-image {
+  flex: 1;
+  background-color: #f0f4f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right Side Form */
+.register-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 50px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.register-form h2 {
+  font-size: 30px;
+  color: #4CAF50;
+  margin-bottom: 25px;
+}
+
+/* Form Content */
+.register-form-content {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Form fields */
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #4CAF50;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #45a049;
+  box-shadow: 0 0 5px rgba(72, 187, 120, 0.5);
+}
+
+/* Register button */
+.btn-register {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-register:hover {
+  background-color: #45a049;
+}
+
+/* Login link */
+.login-link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-container {
+      flex-direction: column;
+  }
+
+  .register-image {
+      display: none;
+  }
+
+  .register-form {
+      width: 100%;
+      box-shadow: none;
+  }
+}

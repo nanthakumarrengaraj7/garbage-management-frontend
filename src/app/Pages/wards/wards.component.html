@@ -1,0 +1,126 @@
+<div class="waste-management-container">
+  <!-- Main Content -->
+  <div class="content-wrapper">
+    <!-- Wards Section -->
+    <div class="wards-section">
+      <h2><i class="fas fa-map-marked-alt me-2"></i>Ward List</h2>
+      
+      <div class="wards-grid">
+        <div class="ward-card" *ngFor="let ward of mergedWards">
+          <div class="ward-image">
+            <img [src]="'http://localhost:5000' + ward.imageUrl" alt="Ward {{ ward.wardNumber }}">
+            <div class="ward-number-badge">Ward {{ ward.wardNumber }}</div>
+          </div>
+          
+          <div class="ward-details">
+            <h3>{{ ward.name }}</h3>
+            <p class="ward-location">
+              <i class="fas fa-map-marker-alt me-1"></i>
+              {{ ward.taluk }}, {{ ward.district }}, {{ ward.state }}
+            </p>
+            
+            <!-- Waste Reports Summary -->
+            <div class="ward-reports-summary" *ngIf="ward.wasteReports && ward.wasteReports.length > 0">
+              <div class="waste-stats">
+                <div class="stat-item">
+                  <div class="stat-label">
+                    <i class="fas fa-leaf me-1"></i>Bio Degradable
+                  </div>
+                  <div class="stat-value">{{ getAverageBio(ward.wasteReports) }}%</div>
+                  <div class="progress-bar">
+                    <div class="progress-fill bio" [style.width]="getAverageBio(ward.wasteReports) + '%'"></div>
+                  </div>
+                </div>
+                
+                <div class="stat-item">
+                  <div class="stat-label">
+                    <i class="fas fa-trash me-1"></i>Non Bio Degradable
+                  </div>
+                  <div class="stat-value">{{ getAverageNonBio(ward.wasteReports) }}%</div>
+                  <div class="progress-bar">
+                    <div class="progress-fill non-bio" [style.width]="getAverageNonBio(ward.wasteReports) + '%'"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="awareness-activities" *ngIf="ward.wasteReports[0]?.awareness">
+                <h4><i class="fas fa-bullhorn me-1"></i>Awareness Activities</h4>
+                <p>{{ ward.wasteReports[0].awareness }}</p>
+              </div>
+              
+              <p class="last-report-date">
+                Last updated: {{ getLastReportDate(ward.wasteReports) | date:'mediumDate' }}
+              </p>
+            </div>
+            
+            <div class="no-reports" *ngIf="!ward.wasteReports || ward.wasteReports.length === 0">
+              No waste reports available
+            </div>
+            
+            <div class="ward-actions">
+              <button class="btn btn-complaint" (click)="openModal(ward.wardNumber)">
+                <i class="fas fa-exclamation-circle me-1"></i>Raise Complaint
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Complaint Modal -->
+  <div class="modal" *ngIf="isModalOpen">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2><i class="fas fa-exclamation-circle me-2"></i>Raise a Complaint</h2>
+      
+      <form (ngSubmit)="submitComplaint()" #complaintForm="ngForm">
+        <div class="form-group">
+          <label for="title"><i class="fas fa-heading me-1"></i>Title:</label>
+          <input type="text" id="title" [(ngModel)]="complaint.title" name="title" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="location"><i class="fas fa-map-pin me-1"></i>Location:</label>
+          <input type="text" id="location" [(ngModel)]="complaint.location" name="location" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="description"><i class="fas fa-align-left me-1"></i>Description:</label>
+          <textarea id="description" [(ngModel)]="complaint.description" name="description" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="wardNumber"><i class="fas fa-map-marked-alt me-1"></i>Ward Number:</label>
+          <input type="text" id="wardNumber" [(ngModel)]="complaint.wardNumber" name="wardNumber" disabled>
+        </div>
+        
+        <div class="form-group">
+          <label for="raisedBy"><i class="fas fa-user me-1"></i>Raised By:</label>
+          <input type="text" id="raisedBy" [(ngModel)]="complaint.raisedBy" name="raisedBy" disabled>
+        </div>
+        
+        <div class="form-group">
+          <label for="images"><i class="fas fa-images me-1"></i>Upload Images (Max 5):</label>
+          <input type="file" id="images" (change)="onFileSelected($event)" multiple accept="image/*">
+          <div class="file-preview" *ngIf="complaint.images.length > 0">
+            <div class="preview-item" *ngFor="let file of complaint.images; let i = index">
+              <span>{{ file.name }}</span>
+              <button type="button" class="remove-file" (click)="removeFile(i)">&times;</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" class="btn btn-cancel" (click)="closeModal()">Cancel</button>
+          <button type="submit" class="btn btn-submit" [disabled]="!complaintForm.valid || complaint.images.length === 0">
+            <i class="fas fa-paper-plane me-1"></i>Submit Complaint
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<app-footer></app-footer>

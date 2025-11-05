@@ -1,0 +1,49 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 1115px;
+    justify-content: space-around;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background-color: rgba(174, 0, 0, 0.7); /* Royal Red with Transparency */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(174, 0, 0, 0.5); /* Royal Red Shadow */
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    width: 280px;
+    margin: 20px;
+    backdrop-filter: blur(8px); /* Blur Effect */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(174, 0, 0, 0.9); /* Darker Red on Hover */
+    box-shadow: 0 6px 16px rgba(174, 0, 0, 0.7);
+  }
+  
+  .card h3 {
+    font-size: 16px;
+    color: #fff; /* White text for better contrast */
+  }
+  
+  .card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffd700; /* Gold color for highlighting the number */
+  }
+  
+  .chart-container {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+  }
+  

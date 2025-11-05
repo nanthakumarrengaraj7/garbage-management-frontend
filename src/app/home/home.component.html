@@ -1,0 +1,56 @@
+<!-- Banner Section -->
+<section class="banner">
+    <div class="banner-content">
+      <h1>Smart Waste Management for a Cleaner City</h1>
+      <p>Join our mission to keep the city clean with smart garbage collection and tracking.</p>
+      <a routerLink="/complaint" class="btn">Raise a Complaint</a>
+    </div>
+  </section>
+  
+  <!-- What We Do Section -->
+  <section class="what-we-do">
+    <h2>What We Do?</h2>
+    <p>We provide innovative solutions for efficient garbage collection, monitoring, and disposal.</p>
+    <div class="features">
+      <div class="feature-card">
+        <img src="assets/images/tracking.avif" alt="Tracking">
+        <h3>Real-Time Tracking</h3>
+        <p>Monitor waste collection trucks for timely service and ensure efficient route management. Track real-time locations, optimize schedules, and reduce delays to maintain a clean and hygienic environment. Improve waste disposal efficiency by analyzing collection patterns and addressing service gaps promptly.</p>
+
+      </div>
+      <div class="feature-card">
+        <img src="assets/images/complaint.avif" alt="Reporting">
+        <h3>Complaint System</h3>
+        <p>Residents can report waste issues for quick resolution. Our system ensures timely action by notifying the concerned authorities immediately. Users can upload images, provide location details, and track the status of their complaints in real time. By working together, we can keep our neighborhoods clean and hygienic for everyone.</p>
+
+      </div>
+      <div class="feature-card">
+        <img src="assets/images/eco.avif" alt="Recycling">
+        <h3>Eco-Friendly Recycling</h3>
+        <p>Encouraging sustainable waste disposal practices by promoting recycling, composting, and responsible waste management. Proper disposal of waste reduces environmental pollution, conserves natural resources, and enhances public health. Join us in making our communities cleaner and greener by adopting eco-friendly waste management solutions.</p>
+
+      </div>
+    </div>
+  </section>
+  
+  <!-- Query Form Section -->
+  <section class="query-section">
+    <div class="query-container">
+      <div class="query-image">
+        <img src="assets/images/contact.avif" alt="Query Image">
+      </div>
+      <div class="query-form">
+        <h2>Have a Query?</h2>
+        <p>Contact us for any questions or concerns regarding waste management.</p>
+        <form (ngSubmit)="submitQuery()">
+          <input type="text" placeholder="Your Name" [(ngModel)]="queryData.name" name="name" required>
+          <input type="email" placeholder="Your Email" [(ngModel)]="queryData.email" name="email" required>
+          <textarea placeholder="Your Message" [(ngModel)]="queryData.message" name="message" required></textarea>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+  
