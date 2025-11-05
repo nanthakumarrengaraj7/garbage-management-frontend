@@ -22,7 +22,7 @@ export class AdminContactComponent implements OnInit {
 
   // Fetch all contact queries
   fetchQueries() {
-    this.http.get<any[]>('http://localhost:5000/api/contact')
+    this.http.get<any[]>('https://garbage-management-backend-qtya.onrender.com/api/contact')
       .subscribe({
         next: (response) => {
           this.queries = response;
@@ -49,7 +49,7 @@ export class AdminContactComponent implements OnInit {
       cancelButtonText: 'No, keep it',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.http.delete(`http://localhost:5000/api/contact/${id}`)
+        this.http.delete(`https://garbage-management-backend-qtya.onrender.com/api/contact/${id}`)
           .subscribe({
             next: () => {
               Swal.fire({

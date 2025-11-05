@@ -25,7 +25,7 @@ export class AdminWardsComponent implements OnInit {
   searchTerm: string = '';
   selectedFile: File | null = null;
 
-  private apiUrl = 'http://localhost:5000/api/wards';
+  private apiUrl = 'https://garbage-management-backend-qtya.onrender.com/api/wards';
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 

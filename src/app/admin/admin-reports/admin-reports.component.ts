@@ -27,7 +27,7 @@ interface WasteReport {
   styleUrls: ['./admin-reports.component.css']
 })
 export class AdminReportsComponent implements OnInit {
-  private readonly API_BASE_URL = 'http://localhost:5000/api';
+  private readonly API_BASE_URL = 'https://garbage-management-backend-qtya.onrender.com/api';
   private readonly WARDS_API = `${this.API_BASE_URL}/wards`;
   private readonly REPORTS_API = `${this.API_BASE_URL}/waste-reports`;
 

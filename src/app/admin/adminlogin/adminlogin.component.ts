@@ -25,7 +25,7 @@ export class AdminloginComponent {
     if (this.loginForm.valid) {
       const credentials = this.loginForm.value;
 
-      this.http.post('http://localhost:5000/api/auth/login', credentials).subscribe(
+      this.http.post('https://garbage-management-backend-qtya.onrender.com/api/auth/login', credentials).subscribe(
         (response: any) => {
           Swal.fire({
             icon: 'success',

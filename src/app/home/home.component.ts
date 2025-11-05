@@ -23,7 +23,7 @@ export class HomeComponent {
 
   submitQuery() {
     // Send the query data to the backend API
-    this.http.post('http://localhost:5000/api/contact', this.queryData)
+    this.http.post('https://garbage-management-backend-qtya.onrender.com/api/contact', this.queryData)
       .subscribe({
         next: (response) => {
           // Show success message using SweetAlert

@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
     const userId = localStorage.getItem('user_id'); // ✅ Use correct key from localStorage
 
     if (userId) {
-      this.http.get(`http://localhost:5000/api/users/${userId}`, { withCredentials: true })
+      this.http.get(`https://garbage-management-backend-qtya.onrender.com/api/users/${userId}`, { withCredentials: true })
         .subscribe({
           next: (response: any) => {
             if (Array.isArray(response) && response.length > 0) {
@@ -66,7 +66,7 @@ export class DashboardComponent implements OnInit {
     const userEmail = localStorage.getItem('username');
 
     if (userEmail) {
-      this.http.get(`http://localhost:5000/api/complaints/user/${userEmail}`, { withCredentials: true })
+      this.http.get(`https://garbage-management-backend-qtya.onrender.com/api/complaints/user/${userEmail}`, { withCredentials: true })
         .subscribe({
           next: (response: any) => {
             this.complaints = response;
@@ -96,7 +96,7 @@ export class DashboardComponent implements OnInit {
 
   // ✅ Logout API Call
   logout() {
-    this.http.post('http://localhost:5000/api/auth/logout', {}, { withCredentials: true })
+    this.http.post('https://garbage-management-backend-qtya.onrender.com/api/auth/logout', {}, { withCredentials: true })
       .subscribe({
         next: () => {
           localStorage.removeItem('user_id'); // ✅ Remove userId from localStorage

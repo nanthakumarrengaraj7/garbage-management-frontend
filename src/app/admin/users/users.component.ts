@@ -32,7 +32,7 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers() {
-    this.http.get<any[]>('http://localhost:5000/api/users').subscribe(
+    this.http.get<any[]>('https://garbage-management-backend-qtya.onrender.com/api/users').subscribe(
       (res) => {
         this.users = res.map(user => ({
           ...user,
@@ -68,7 +68,7 @@ export class UsersComponent implements OnInit {
   saveUser() {
     if (this.selectedUser._id) {
       this.http
-        .put(`http://localhost:5000/api/users/${this.selectedUser._id}`, this.selectedUser)
+        .put(`https://garbage-management-backend-qtya.onrender.com/api/users/${this.selectedUser._id}`, this.selectedUser)
         .subscribe(
           () => {
             Swal.fire('Success!', 'User updated successfully!', 'success');
@@ -95,7 +95,7 @@ export class UsersComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.http
-          .delete(`http://localhost:5000/api/users/${userId}`)
+          .delete(`https://garbage-management-backend-qtya.onrender.com/api/users/${userId}`)
           .subscribe(
             () => {
               Swal.fire('Deleted!', 'User has been deleted.', 'success');

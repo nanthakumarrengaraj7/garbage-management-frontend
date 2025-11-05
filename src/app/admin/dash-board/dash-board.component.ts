@@ -31,7 +31,7 @@ export class DashBoardComponent implements AfterViewInit {
     console.log('Fetching counts...');
   
     // Fetch Wards Count
-    this.http.get<any[]>('http://localhost:5000/api/wards').subscribe({
+    this.http.get<any[]>('https://garbage-management-backend-qtya.onrender.com/api/wards').subscribe({
       next: (response) => {
         console.log('Wards Count:', response.length);
         this.totalWards = response.length; // ✅ Get array length
@@ -40,7 +40,7 @@ export class DashBoardComponent implements AfterViewInit {
     });
   
     // Fetch Users Count
-    this.http.get<any[]>('http://localhost:5000/api/users').subscribe({
+    this.http.get<any[]>('https://garbage-management-backend-qtya.onrender.com/api/users').subscribe({
       next: (response) => {
         console.log('Users Count:', response.length);
         this.totalUsers = response.length; // ✅ Get array length
@@ -49,7 +49,7 @@ export class DashBoardComponent implements AfterViewInit {
     });
   
     // Fetch Employees Count
-    this.http.get<any[]>('http://localhost:5000/api/emp').subscribe({
+    this.http.get<any[]>('https://garbage-management-backend-qtya.onrender.com/api/emp').subscribe({
       next: (response) => {
         console.log('Employees Count:', response.length);
         this.totalEmployees = response.length; // ✅ Get array length
@@ -58,7 +58,7 @@ export class DashBoardComponent implements AfterViewInit {
     });
   
     // Fetch Complaints Data
-    this.http.get<any[]>('http://localhost:5000/api/complaints').subscribe({
+    this.http.get<any[]>('https://garbage-management-backend-qtya.onrender.com/api/complaints').subscribe({
       next: (response) => {
         console.log('Complaints Data:', response);
   

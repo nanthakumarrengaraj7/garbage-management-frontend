@@ -29,7 +29,7 @@ export class EmployeeComponent {
 
   // Fetch employee data from backend API
   fetchEmployees() {
-    this.http.get<any[]>('http://localhost:5000/api/emp').subscribe(
+    this.http.get<any[]>('https://garbage-management-backend-qtya.onrender.com/api/emp').subscribe(
       (data) => {
         this.employees = data;
         this.filteredEmployees = data;
@@ -43,7 +43,7 @@ export class EmployeeComponent {
 
   // Fetch ward data from backend API
   fetchWards() {
-    this.http.get<any[]>('http://localhost:5000/api/wards').subscribe(
+    this.http.get<any[]>('https://garbage-management-backend-qtya.onrender.com/api/wards').subscribe(
       (data) => {
         this.wards = data;  // Assign the fetched wards data to the wards array
       },
@@ -82,7 +82,7 @@ export class EmployeeComponent {
   // Save employee data (add/edit)
   saveEmployee() {
     if (this.editMode) {
-      this.http.put(`http://localhost:5000/api/emp/${this.selectedEmployee._id}`, this.selectedEmployee).subscribe(
+      this.http.put(`https://garbage-management-backend-qtya.onrender.com/api/emp/${this.selectedEmployee._id}`, this.selectedEmployee).subscribe(
         () => {
           this.fetchEmployees();
           this.closeModal();
@@ -94,7 +94,7 @@ export class EmployeeComponent {
         }
       );
     } else {
-      this.http.post('http://localhost:5000/api/emp', this.selectedEmployee).subscribe(
+      this.http.post('https://garbage-management-backend-qtya.onrender.com/api/emp', this.selectedEmployee).subscribe(
         () => {
           this.fetchEmployees();
           this.closeModal();
@@ -119,7 +119,7 @@ export class EmployeeComponent {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.http.delete(`http://localhost:5000/api/emp/${id}`).subscribe(
+        this.http.delete(`https://garbage-management-backend-qtya.onrender.com/api/emp/${id}`).subscribe(
           () => {
             this.fetchEmployees();
             Swal.fire('Deleted!', 'The employee has been deleted.', 'success');  // SweetAlert success

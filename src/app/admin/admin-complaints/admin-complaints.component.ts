@@ -34,7 +34,7 @@ export class AdminComplaintsComponent {
 
   // ✅ Fetch complaints from backend
   fetchComplaints() {
-    this.http.get<any[]>('http://localhost:5000/api/complaints').subscribe(
+    this.http.get<any[]>('https://garbage-management-backend-qtya.onrender.com/api/complaints').subscribe(
       (data) => {
         this.complaints = data;
         this.filteredComplaints = data;
@@ -51,7 +51,7 @@ export class AdminComplaintsComponent {
 
   // ✅ Fetch employee list
   fetchEmployees() {
-    this.http.get<any[]>('http://localhost:5000/api/emp').subscribe(
+    this.http.get<any[]>('https://garbage-management-backend-qtya.onrender.com/api/emp').subscribe(
       (data) => {
         this.employees = data;
       },
@@ -95,7 +95,7 @@ export class AdminComplaintsComponent {
   saveComplaintStatus() {
     this.http
       .put(
-        `http://localhost:5000/api/complaints/${this.selectedComplaint._id}`,
+        `https://garbage-management-backend-qtya.onrender.com/api/complaints/${this.selectedComplaint._id}`,
         this.selectedComplaint
       )
       .subscribe(
@@ -139,7 +139,7 @@ export class AdminComplaintsComponent {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.http.delete(`http://localhost:5000/api/complaints/${id}`).subscribe(
+        this.http.delete(`https://garbage-management-backend-qtya.onrender.com/api/complaints/${id}`).subscribe(
           () => {
             this.fetchComplaints();
             Swal.fire('Deleted!', 'Complaint has been deleted.', 'success');

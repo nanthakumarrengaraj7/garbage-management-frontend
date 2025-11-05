@@ -71,8 +71,8 @@ export class WardsComponent implements OnInit {
 
   fetchData() {
     forkJoin({
-      wards: this.http.get<Ward[]>('http://localhost:5000/api/wards'),
-      reports: this.http.get<WasteReport[]>('http://localhost:5000/api/waste-reports')
+      wards: this.http.get<Ward[]>('https://garbage-management-backend-qtya.onrender.com/api/wards'),
+      reports: this.http.get<WasteReport[]>('https://garbage-management-backend-qtya.onrender.com/api/waste-reports')
     }).subscribe({
       next: ({ wards, reports }) => {
         this.wards = wards;
@@ -168,7 +168,7 @@ export class WardsComponent implements OnInit {
       formData.append('images', file, file.name);
     });
 
-    this.http.post('http://localhost:5000/api/complaints', formData)
+    this.http.post('https://garbage-management-backend-qtya.onrender.com/api/complaints', formData)
       .subscribe({
         next: (response) => {
           this.showSuccess('Complaint submitted successfully!');

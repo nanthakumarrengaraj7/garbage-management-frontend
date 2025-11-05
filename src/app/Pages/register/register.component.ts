@@ -48,7 +48,7 @@ export class RegisterComponent {
       password: this.password
     };
 
-    this.http.post('http://localhost:5000/api/auth/register', userData)
+    this.http.post('https://garbage-management-backend-qtya.onrender.com/api/auth/register', userData)
       .subscribe({
         next: (response) => {
           Swal.fire({

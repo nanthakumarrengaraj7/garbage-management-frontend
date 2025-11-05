@@ -37,7 +37,7 @@ export class LoginComponent {
       password: this.password
     };
 
-    this.http.post('http://localhost:5000/api/auth/login', loginData)
+    this.http.post('https://garbage-management-backend-qtya.onrender.com/api/auth/login', loginData)
       .subscribe({
         next: (response: any) => {
           console.log('Login successful:', response);
