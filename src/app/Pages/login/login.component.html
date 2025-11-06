@@ -1,30 +1,42 @@
 <div class="login-wrapper">
   <div class="login-card">
-    <div class="login-image">
-      <img src="assets/images/login.avif" alt="Login Background">
+    <div class="login-left">
+      <div class="brand">
+        <h1>Smart<span>City</span></h1>
+        <p>Your Waste, Our Responsibility ♻️</p>
+      </div>
+      <img src="assets/images/login.avif" alt="Login Illustration" class="login-illustration">
     </div>
 
-    <div class="login-form">
+    <div class="login-right">
       <h2>Welcome Back 👋</h2>
-      <p>Please login to continue</p>
-      
-      <form (ngSubmit)="loginUser()" #loginForm="ngForm">
+      <p class="subtitle">Login to access your account</p>
+
+      <form (ngSubmit)="loginUser()" #loginForm="ngForm" autocomplete="off">
         <div class="input-group">
-          <input type="email" id="email" name="email" [(ngModel)]="email" required>
-          <label for="email">Email</label>
+          <input type="email" id="email" name="email" [(ngModel)]="email" required placeholder=" ">
+          <label for="email">Email Address</label>
         </div>
 
         <div class="input-group">
-          <input type="password" id="password" name="password" [(ngModel)]="password" required>
+          <input type="password" id="password" name="password" [(ngModel)]="password" required placeholder=" ">
           <label for="password">Password</label>
         </div>
 
         <button type="submit" class="btn-login" [disabled]="isLoading">
           {{ isLoading ? 'Signing In...' : 'Login' }}
         </button>
-        
+
+        <div class="divider">
+          <span>or</span>
+        </div>
+
+        <button type="button" class="btn-google">
+          <img src="assets/images/google-icon.svg" alt="Google"> Login with Google
+        </button>
+
         <div class="register-link">
-          <p>Don't have an account? <a href="/register">Register here</a></p>
+          <p>Don’t have an account? <a href="/register">Register here</a></p>
         </div>
       </form>
     </div>

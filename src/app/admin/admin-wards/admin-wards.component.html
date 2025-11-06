@@ -17,7 +17,7 @@
     <!-- ✅ Ward List Section -->
     <div class="ward-list">
       <div *ngFor="let ward of filteredWards; let i = index" class="ward-card">
-        <img [src]="'http://localhost:5000' + ward.imageUrl" alt="Ward Image" class="ward-image" />
+        <img [src]="getImageUrl(ward.imageUrl)" alt="Ward Image" class="ward-image" />
 
         <div class="ward-details">
           <h3>{{ ward.wardNumber }}</h3>

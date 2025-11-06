@@ -170,4 +170,8 @@ export class AdminWardsComponent implements OnInit {
     this.isModalOpen = false;
     this.selectedFile = null;
   }
+
+  getImageUrl(imageName: string): string {
+  return `https://garbage-management-backend-qtya.onrender.com/uploads/${imageName}`;
+}
 }
