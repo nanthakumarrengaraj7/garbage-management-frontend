@@ -12,11 +12,11 @@
   <!-- ✅ Ward List Section -->
   <div class="ward-list">
     <div *ngFor="let ward of filteredWards; let i = index" class="ward-card">
-      <!-- <img [src]="getImageUrl(ward.imageUrl)" alt="Ward Image" class="ward-image" /> -->
-
+      <img [src]="getImageUrl(ward.imageUrl)" alt="Ward Image" class="ward-image" />
+<!-- 
       <img
         [src]="ward.imageUrl?.startsWith('http') ? ward.imageUrl.replace('http://localhost:5000', 'https://garbage-management-backend-qtya.onrender.com') : getImageUrl(ward.imageUrl)"
-        alt="Ward Image" class="ward-image" />
+        alt="Ward Image" class="ward-image" /> -->
 
       <div class="ward-details">
         <h3>{{ ward.wardNumber }}</h3>
