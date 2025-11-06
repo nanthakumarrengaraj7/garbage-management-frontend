@@ -1,52 +1,50 @@
 <div class="container">
-    <!-- ✅ Header Section -->
-    <div class="header">
-      <h2 class="title">Wards List</h2>
-      <div class="filters">
-        <input 
-          type="text" 
-          [(ngModel)]="searchTerm" 
-          (input)="filterWards()" 
-          placeholder="🔍 Search Wards..." 
-          class="search-input"
-        />
-        <button class="add-btn" (click)="openModal()">+ Add Ward</button>
-      </div>
+  <!-- ✅ Header Section -->
+  <div class="header">
+    <h2 class="title">Wards List</h2>
+    <div class="filters">
+      <input type="text" [(ngModel)]="searchTerm" (input)="filterWards()" placeholder="🔍 Search Wards..."
+        class="search-input" />
+      <button class="add-btn" (click)="openModal()">+ Add Ward</button>
     </div>
-  
-    <!-- ✅ Ward List Section -->
-    <div class="ward-list">
-      <div *ngFor="let ward of filteredWards; let i = index" class="ward-card">
-        <img [src]="getImageUrl(ward.imageUrl)" alt="Ward Image" class="ward-image" />
+  </div>
 
-        <div class="ward-details">
-          <h3>{{ ward.wardNumber }}</h3>
-          <p>{{ ward.taluk }}, {{ ward.district }}, {{ ward.state }}, {{ ward.country }}</p>
-          <div class="actions">
-            <button class="edit-btn" (click)="openModal(i)">Edit</button>
-            <button class="delete-btn" (click)="deleteWard(i)">Delete</button>
-          </div>
+  <!-- ✅ Ward List Section -->
+  <div class="ward-list">
+    <div *ngFor="let ward of filteredWards; let i = index" class="ward-card">
+      <!-- <img [src]="getImageUrl(ward.imageUrl)" alt="Ward Image" class="ward-image" /> -->
+
+      <img
+        [src]="ward.imageUrl?.startsWith('http') ? ward.imageUrl.replace('http://localhost:5000', 'https://garbage-management-backend-qtya.onrender.com') : getImageUrl(ward.imageUrl)"
+        alt="Ward Image" class="ward-image" />
+
+      <div class="ward-details">
+        <h3>{{ ward.wardNumber }}</h3>
+        <p>{{ ward.taluk }}, {{ ward.district }}, {{ ward.state }}, {{ ward.country }}</p>
+        <div class="actions">
+          <button class="edit-btn" (click)="openModal(i)">Edit</button>
+          <button class="delete-btn" (click)="deleteWard(i)">Delete</button>
         </div>
       </div>
     </div>
-  
-    <!-- ✅ Modal Section -->
-    <div class="modal-overlay" *ngIf="isModalOpen">
-      <div class="modal">
-        <h3>{{ editMode ? 'Edit Ward' : 'Add Ward' }}</h3>
-        <form [formGroup]="wardForm" (ngSubmit)="onSubmit()">
-            <input type="file" (change)="onFileSelected($event)" placeholder="Upload the Image"/>
-          <input type="text" formControlName="wardNumber" placeholder="Ward Number" />
-          <input type="text" formControlName="taluk" placeholder="Taluk" />
-          <input type="text" formControlName="district" placeholder="District" />
-          <input type="text" formControlName="state" placeholder="State" />
-          <input type="text" formControlName="country" placeholder="Country" />
-          <div class="modal-actions">
-            <button type="submit" [disabled]="wardForm.invalid" class="save-btn">Save</button>
-            <button type="button" (click)="closeModal()" class="cancel-btn">Cancel</button>
-          </div>
-        </form>
-      </div>
+  </div>
+
+  <!-- ✅ Modal Section -->
+  <div class="modal-overlay" *ngIf="isModalOpen">
+    <div class="modal">
+      <h3>{{ editMode ? 'Edit Ward' : 'Add Ward' }}</h3>
+      <form [formGroup]="wardForm" (ngSubmit)="onSubmit()">
+        <input type="file" (change)="onFileSelected($event)" placeholder="Upload the Image" />
+        <input type="text" formControlName="wardNumber" placeholder="Ward Number" />
+        <input type="text" formControlName="taluk" placeholder="Taluk" />
+        <input type="text" formControlName="district" placeholder="District" />
+        <input type="text" formControlName="state" placeholder="State" />
+        <input type="text" formControlName="country" placeholder="Country" />
+        <div class="modal-actions">
+          <button type="submit" [disabled]="wardForm.invalid" class="save-btn">Save</button>
+          <button type="button" (click)="closeModal()" class="cancel-btn">Cancel</button>
+        </div>
+      </form>
     </div>
   </div>
-  
+</div>
